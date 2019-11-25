@@ -18,12 +18,20 @@ router.post('/trip', async (req, res, next) => {
 
   } catch (err) {
 
-    res.status(404).json({
-      success: false,
-      result: err.errors.name.message
-    });
-    // next(err);
-    // return;
+    // Send JSON error response if trip name property is missing or empty
+    if (err.name = 'ValidationError') {
+
+      res.status(400).json({
+            success: false,
+            result: err.errors.name.message
+          });
+
+    } else {
+
+      next(err);
+      return;
+
+    } 
 
   }
 
