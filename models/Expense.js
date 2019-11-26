@@ -3,7 +3,7 @@
 const mongoose = require('mongoose');
 
 const expenseSchema = mongoose.Schema({
-  trip: {
+  tripId: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Trip',
     required: true 
