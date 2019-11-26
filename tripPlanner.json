@@ -35,13 +35,6 @@
         ],
         "parameters": [
           {
-            "name": "Content-Type",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
-          {
             "name": "name",
             "in": "formData",
             "required": true,
@@ -94,13 +87,6 @@
           "application/x-www-form-urlencoded"
         ],
         "parameters": [
-          {
-            "name": "Content-Type",
-            "in": "header",
-            "required": true,
-            "type": "string",
-            "description": ""
-          },
           {
             "name": "trip",
             "in": "formData",
