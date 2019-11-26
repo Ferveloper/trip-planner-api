@@ -6,10 +6,10 @@
     "description": "A trip costs tracker API REST to plan your travels around the world!",
     "contact": {}
   },
-  "host": "localhost:3000",
+  "host": "fast-temple-44382.herokuapp.com",
   "basePath": "/v1",
   "schemes": [
-    "http"
+    "https"
   ],
   "consumes": [
     "application/json"
