@@ -1,0 +1,180 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0",
+    "title": "Trip Planner API",
+    "description": "A trip costs tracker API REST to plan your travels around the world!",
+    "contact": {}
+  },
+  "host": "localhost:3000",
+  "basePath": "/v1",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/trip": {
+      "post": {
+        "description": "Add a trip to the list of current trips",
+        "summary": "Add a trip",
+        "tags": [
+          "Trips"
+        ],
+        "operationId": "Addatrip",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "name",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Trip name"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/trips": {
+      "get": {
+        "description": "Get a list of stored trip names",
+        "summary": "List trips",
+        "tags": [
+          "Trips"
+        ],
+        "operationId": "Listtrips",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/expense": {
+      "post": {
+        "description": "Add a expense to a current trip",
+        "summary": "Add a trip expense",
+        "tags": [
+          "Expenses"
+        ],
+        "operationId": "Addatripexpense",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "consumes": [
+          "application/x-www-form-urlencoded"
+        ],
+        "parameters": [
+          {
+            "name": "Content-Type",
+            "in": "header",
+            "required": true,
+            "type": "string",
+            "description": ""
+          },
+          {
+            "name": "trip",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Current trip name"
+          },
+          {
+            "name": "date",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Expense date"
+          },
+          {
+            "name": "amount",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Spent amount of money"
+          },
+          {
+            "name": "category",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Expense category"
+          },
+          {
+            "name": "description",
+            "in": "formData",
+            "required": true,
+            "type": "string",
+            "description": "Expense description"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    },
+    "/expenses": {
+      "get": {
+        "description": "Get a list of stored trip expenses",
+        "summary": "List trips expenses",
+        "tags": [
+          "Expenses"
+        ],
+        "operationId": "Listtripsexpenses",
+        "deprecated": false,
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "",
+            "headers": {}
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Trips",
+      "description": "Trips endpoint"
+    },
+    {
+      "name": "Expenses",
+      "description": "Expenses endpoint"
+    }
+  ]
+}
