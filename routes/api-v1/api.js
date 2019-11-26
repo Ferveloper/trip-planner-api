@@ -10,7 +10,7 @@ router.post('/trip', async (req, res, next) => {
   try {
 
     const trip = new Trip({ name: req.body.name });
-    const savedTrip = await trip.save()
+    const savedTrip = await trip.save();
     res.status(200).json({
       success: true,
       result: savedTrip
@@ -19,7 +19,7 @@ router.post('/trip', async (req, res, next) => {
   } catch (err) {
 
     // Send JSON error response if trip name property is missing or empty
-    if (err.name = 'ValidationError') {
+    if (err.name === 'ValidationError') {
 
       res.status(400).json({
             success: false,
@@ -64,15 +64,15 @@ router.post('/expense', async (req, res, next) => {
   try {
 
     const data = {};
-    trip = await Trip.findOne({ name: req.body.trip });
-    data.tripId = tripId._id;
-    data.date = req.body.date,
-    data.amount = req.body.amount,
-    data.category = req.body.category,
-    data.description = req.body.description
+    trip = await Trip.findOne({ name: req.body.trip }) || {};
+    data.tripId = trip._id;
+    data.date = req.body.date;
+    data.amount = req.body.amount;
+    data.category = req.body.category;
+    data.description = req.body.description;
 
     const expense = new Expense(data);
-    const savedExpense = await expense.save()
+    const savedExpense = await expense.save();
     res.status(200).json({
       success: true,
       result: savedExpense
@@ -80,8 +80,19 @@ router.post('/expense', async (req, res, next) => {
 
   } catch (err) {
 
+    if (err.name === 'ValidationError') {
+
+      res.status(400).json({
+            success: false,
+            result: err.message
+          });
+
+    } else {
+    
     next(err);
     return;
+  
+    }
 
   }
 
@@ -92,7 +103,7 @@ router.get('/expenses', async (req, res, next) => {
 
   try {
 
-    const expenses = await Expenses.find();
+    const expenses = await Expense.find();
 
     res.status(200).json({
       success: true,
