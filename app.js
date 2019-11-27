@@ -5,6 +5,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./tripPlanner.json');
+if (process.env.HOST) swaggerDocument.host = process.env.HOST;
+if (process.env.BASE_PATH) swaggerDocument.basePath = process.env.BASE_PATH;
+if (process.env.SCHEMES) swaggerDocument.schemes = process.env.SCHEMES;
 
 const db = require('./lib/connectMongoose');
 const indexRouter = require('./routes/index');
@@ -21,7 +24,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+app.use(process.env.API_DOCS_PATH, swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.use('/', indexRouter);
 app.use('/v1', apiRouter);

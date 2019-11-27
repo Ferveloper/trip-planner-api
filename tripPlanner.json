@@ -2,14 +2,14 @@
   "swagger": "2.0",
   "info": {
     "version": "1.0",
-    "title": "Trip Planner API",
+    "title": "Trip Planner",
     "description": "A trip costs tracker API REST to plan your travels around the world!",
     "contact": {}
   },
-  "host": "fast-temple-44382.herokuapp.com",
+  "host": "localhost:3000",
   "basePath": "/v1",
   "schemes": [
-    "https"
+    "http"
   ],
   "consumes": [
     "application/json"
