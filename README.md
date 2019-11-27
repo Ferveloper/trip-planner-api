@@ -2,6 +2,11 @@
 
 An API REST built in Node.js/Express and MongoDB to keep track of travel expenses.
 
+## Preview
+
+API Documentation: https://tripplannerapi.herokuapp.com/api-docs/
+
+
 ## Requirements
 
 - Node.js
@@ -13,9 +18,17 @@ An API REST built in Node.js/Express and MongoDB to keep track of travel expense
 > git clone https://github.com/Ferveloper/trip-planner-api.git
 > cd trip-planner-api
 > npm i
-> npm start
 ```
 
-## Preliminary API documentation
+Then, copy .env.example file and add your variables
 
-https://documenter.getpostman.com/view/6421214/SW7exQM6?version=latest
+```
+> cp .env.example .env
+> nano .env
+```
+
+Finally, launch the project
+
+```
+> npm start
+```
